@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body {
+      font-family: 'Overpass', sans-serif;
+    }
+
+    .outerContainer {
+      margin-top: 200px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+    }
+
+    body {
+      background-color: hsl(216, 12%, 8%);
+    }
+
+    .container {
+      position: absolute;
+      width: 20%;
+      height: auto;
+      padding: 20px 20px 0px 20px;
+      background-color: hsl(213, 19%, 18%);
+      background: linear-gradient(180deg, hsl(213, 19%, 18%) 5%, hsl(216, 12%, 8%));
+      border-radius: 20px;
+    }
+
+    .container img {
+      border-radius: 50%;
+      padding: 10px;
+      background-color: hsl(213, 19%, 18%);
+    }
+
+    .container h1 {
+      color: white;
+    }
+
+    .container p {
+      color: hsl(217, 12%, 63%);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .numBtns {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+
+    .numBtns label {
+      padding: 10px 15px 10px 15px;
+      border-radius: 50%;
+      border: none;
+      color: hsl(217, 12%, 63%);
+      background-color: hsl(216, 6%, 17%);
+    }
+
+    .numBtns label:hover {
+      background-color: orange;
+      color: white;
+      cursor: pointer;
+    }
+
+    .numBtns label:checked {
+      color: white;
+      background-color: lightgrey;
+    }
+
+    input:checked+label {
+      background-color: lightgray;
+      color: white;
+    }
+
+    #one,
+    #two,
+    #three,
+    #four,
+    #five {
+      display: none;
+    }
+
+
+    .submit {
+      padding: 7px 0px 7px 0px;
+      border-radius: 20px;
+      border: none;
+      color: white;
+      background-color: orange;
+    }
+
+    .submit:hover {
+      color: orange;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .container2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      height: auto;
+      padding: 20px 20px 20px 20px;
+      background-color: hsl(213, 19%, 18%);
+      background: linear-gradient(180deg, hsl(213, 19%, 18%) 5%, hsl(216, 12%, 8%));
+      border-radius: 20px;
+      opacity: 1;
+    }
+
+    .container2 img {
+      height: 75px;
+    }
+
+    .firstP {
+      color: orange;
+      padding: 5px 10px 5px 10px;
+      background-color: hsl(213, 19%, 18%);
+      border-radius: 20px;
+      font-size: 15px;
+    }
+
+    .container2 h1 {
+      color: white;
+    }
+
+    .secondP {
+      text-align: center;
+      color: hsl(217, 12%, 63%);
+      font-size: 15px;
+    }
+
+    @media screen and (max-width:1200px) {
+      .container {
+        width: 25%;
+      }
+
+      .container2 {
+        width: 25%;
+      }
+
+    }
+
+    @media screen and (max-width:917px) {
+      .container {
+        width: 27%;
+      }
+
+      .container2 {
+        width: 27%;
+      }
+
+    }
+
+    @media screen and (max-width:850px) {
+      .container {
+        width: 30%;
+      }
+
+      .container2 {
+        width: 30%;
+      }
+
+    }
+
+    @media screen and (max-width:766px) {
+      .container {
+        width: 35%;
+      }
+
+      .container2 {
+        width: 35%;
+      }
+
+    }
+
+    @media screen and (max-width:660px) {
+      .container {
+        width: 40%;
+      }
+
+      .container2 {
+        width: 40%;
+      }
+
+    }
+
+    @media screen and (max-width:576px) {
+      .container {
+        width: 50%;
+      }
+
+      .container2 {
+        width: 50%;
+      }
+
+    }
+
+    @media screen and (max-width:460px) {
+      .container {
+        width: 60%;
+      }
+
+      .container2 {
+        width: 60%;
+      }
+
+    }
+
+    @media screen and (max-width:385px) {
+      .container {
+        width: 70%;
+      }
+
+      .container2 {
+        width: 70%;
+      }
+
+    }
+
+
+
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Rating state start -->
+  <div class="outerContainer">
+    <div class="container">
+      <img src="C:\Users\owner\Desktop\my portfolio\projects\interactive-rating-component-main\images\icon-star.svg"
+        alt="">
+      <h1>How did we do?</h1>
+
+
+      <p> Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!</p>
+      <form action="submit">
+        <div class="numBtns">
+          <input type="radio" name="rate" id="one" value="1" class="numBtn">
+          <label for="one">1</label>
+          <input type="radio" name="rate" id="two" value="2" class="numBtn">
+          <label for="two">2</label>
+          <input type="radio" name="rate" id="three" value="3" class="numBtn">
+          <label for="three">3</label>
+          <input type="radio" name="rate" id="four" value="4" class="numBtn">
+          <label for="four">4</label>
+          <input type="radio" name="rate" id="five" value="5" class="numBtn">
+          <label for="five">5</label>
+
+          <!-- JUST IN CASE BUTTONS(TAKE PLACES OF RADIO) -->
+          <!-- <button id="numBtn" class="1" value="1">1</button>
+          <button id="numBtn" class="2" value="2">2</button>
+          <button id="numBtn" class="3" value="3">3</button>
+          <button id="numBtn" class="4" value="4">4</button>
+          <button id="numBtn" class="5" value="5">5</button> -->
+        </div>
+
+        <button class="submit"> Submit </button>
+      </form>
+    </div>
+
+    <!-- Rating state end -->
+
+    <!-- Thank you state start -->
+    <div class="container2">
+      <img
+        src="C:\Users\owner\Desktop\my portfolio\projects\interactive-rating-component-main\images\illustration-thank-you.svg"
+        alt="">
+
+      <p class="firstP"> You selected
+        <!-- Add rating here --> <span class="rating"></span> out of 5
+      </p>
+
+      <h1>Thank you!</h1>
+
+      <p class="secondP"> We appreciate you taking the time to give a rating. If you ever need more support,
+        don’t hesitate to get in touch! </p>
+    </div>
+  </div>
+  <!-- Thank you state end -->
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+
+
+
+  <script src="rating.js"></script>
+</body>
+
+</html>
